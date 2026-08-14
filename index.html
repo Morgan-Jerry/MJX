@@ -3,87 +3,464 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta
+      name="description"
+      content="Aviator Violinist — professional violin performances for weddings, birthdays, church programs, corporate events, proposals and special occasions in Nigeria."
+    />
+    <meta property="og:title" content="Aviator Violinist | Morgan Jeremiah" />
+    <meta
+      property="og:description"
+      content="Professional violinist, aviation enthusiast, and creative professional delivering elegant live performances and memorable experiences."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Aviator Violinist | Morgan Jeremiah</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/mjx.css" />
-    <title>MJX</title>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="heading">
-        <div class="navbar">
+    <div class="preloader" id="preloader" aria-live="polite" aria-label="Loading page">
+      <div class="preloader__sky"></div>
+      <div class="preloader__stars"></div>
+      <div class="preloader__ring"></div>
 
-          <div class="logo-container">
-          <img class="logo" src="../Logos/mjx-logo-org.png" alt="Logo" />
-          <div class="logo-text">
-          <p>
-            <i><b>AVIATION. MUSIC. INNOVATION. IMPACT</b></i>
-          </p>
-          </div>
-          </div>
-          
-          <ul class="navs">
-            <li class="nav"><a href="#home" class="navlinks">HOME</a></li>
-            <li class="nav"><a href="#about" class="navlinks">ABOUT</a></li>
-            <li class="nav">
-              <a href="#services" class="navlinks">SERVICES</a>
-            </li>
-            <li class="nav"><a href="blog" class="navlinks">BLOG</a></li>
-            <li class="nav"><a href="contact" class="navlinks">CONTACT</a></li>
-            <li class="nav"><a href="login" class="navlinks">LOGIN</a></li>
-          </ul>
-        </div>
-        <!-- Home Page -->
-        <div class="hero" id="home">
-          <h1>DRIVEN <br />BEYOND LIMITS</h1>
-          <p class="hero-sub">
-            A global ecosystem of excellence in <br />
-            Aviation. Music. Travel. Freelancing. Marketing.
-          </p>
-          <button>EXPLORE MJX</button>
-        </div>
+      <div class="preloader__logo-wrap">
+        <img class="preloader__logo" src="assets/images/logo.png" alt="Aviator Violinist logo" />
+        <h1>AVIATOR <span>VIOLINIST</span></h1>
+        <p>Professional Violinist • Aviation Enthusiast • Creative Professional</p>
       </div>
-      <!-- Symbols -->
-      <div class="logo-explanation">
-        <div class=""><img src="../Logos/wing-symbol.png" alt="Wings" /></div>
-        <div class="wing-text">
-          <h2>WINGS</h2>
-          <p>
-            Symbolizes the aviation industry and the spirit of flight,
-            representing freedom, ambition, and the pursuit of new heights.
-          </p>
+
+      <div class="preloader__flight-board">
+        <div class="flight-board__header">
+          <span>FLIGHT AV707</span>
+          <span>DESTINATION</span>
+          <span>PORTFOLIO EXPERIENCE</span>
         </div>
-        <hr />
-        <div class=""><img src="../Logos/M-symbol.png" alt="M" /></div>
-        <div class="m-text">
-          <h2>THE FOUNDATION</h2>
-          <p>
-            Represents the name "MORGAN JEREMIAH" a legacy built on purpose,
-            emphasizing its unique identity and presence in the market.
-          </p>
+        <div id="loading-message" class="flight-board__message">Checking Passport</div>
+      </div>
+
+      <div class="preloader__progress-wrap">
+        <div class="preloader__progress-bar">
+          <span id="progress-fill"></span>
         </div>
-        <hr />
-        <div class="">
-          <img src="../Logos/violin-symbol.png" alt="Violin" />
-        </div>
-        <div class="violin-text">
-          <h2>VIOLIN</h2>
-          <p>
-            Represents the music industry and the art of expression, symbolizing
-            creativity, passion, and the power of sound.
-          </p>
-        </div>
-        <hr />
-        <div class=""><img src="../Logos/x-symbol.png" alt="X" /></div>
-        <div class="x-text">
-          <h2>THE X FACTOR</h2>
-          <p>
-            Represents the unknown and the infinite possibilities that lie
-            ahead, symbolizing the brand's commitment to innovation and
-            exploration.
-          </p>
-        </div>
+        <div id="loader-percent" class="preloader__percent">0%</div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <div class="site-shell" id="site-shell">
+      <header class="site-header">
+        <div class="container navbar">
+          <a class="brand" href="#home" aria-label="Aviator Violinist home">
+            <img class="logo" src="assets/images/logo.png" alt="Aviator Violinist logo" />
+            <div class="brand-copy">
+              <strong>AVIATOR VIOLINIST</strong>
+              <span>Morgan Jeremiah</span>
+            </div>
+          </a>
+
+          <button class="menu-toggle" type="button" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="nav-links" aria-label="Main navigation">
+            <a href="#home" class="is-active">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#services">SERVICES</a>
+            <a href="#blog">BLOG</a>
+            <a href="#contact">CONTACT</a>
+            <a class="nav-login" href="#contact">LOGIN</a>
+            <button class="nav-menu" type="button" aria-label="Open menu">MENU</button>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="home">
+          <div class="container hero-content reveal">
+            <div class="hero-copy">
+              <p class="eyebrow">Professional Violinist • Aviation Enthusiast • Creative Professional</p>
+              <h1>AVIATOR <span>VIOLINIST</span></h1>
+              <p class="hero-sub">Elevating Events Through Music. Creating Moments That Last.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://wa.me/2347034324561" target="_blank" rel="noreferrer">BOOK NOW</a>
+                <a class="btn btn-secondary" href="#about">EXPLORE</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="feature-strip">
+          <div class="container feature-grid">
+            <article class="feature-card reveal">
+              <div class="feature-icon">🎻</div>
+              <h3>LIVE PERFORMANCES</h3>
+              <p>Elegant violin performances for weddings, celebrations and special occasions.</p>
+            </article>
+            <article class="feature-card reveal">
+              <div class="feature-icon">🎶</div>
+              <h3>MUSIC EDUCATION</h3>
+              <p>Violin lessons, coaching, workshops and musical development.</p>
+            </article>
+            <article class="feature-card reveal">
+              <div class="feature-icon">✦</div>
+              <h3>EVENT ENTERTAINMENT</h3>
+              <p>Professional violin entertainment for private and corporate events.</p>
+            </article>
+            <article class="feature-card reveal">
+              <div class="feature-icon">✈</div>
+              <h3>SPECIAL OCCASIONS</h3>
+              <p>Memorable performances for proposals, birthdays, church programs and celebrations.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section about-section" id="about">
+          <div class="container about-layout">
+            <div class="about-copy reveal">
+              <p class="eyebrow">ABOUT AVIATOR VIOLINIST</p>
+              <h2>The music. The journey. The purpose.</h2>
+              <p>
+                Morgan Jeremiah, professionally known as Aviator Violinist, is a Nigerian violinist and aviation enthusiast passionate about creating memorable experiences through music.
+              </p>
+              <p>
+                He delivers expressive violin performances across gospel, classical, contemporary, worship, pop and other musical styles.
+              </p>
+              <p>
+                His performances are designed to bring elegance, emotion and atmosphere to every occasion.
+              </p>
+              <p>
+                Morgan's journey combines music, creativity, discipline and aviation, creating a unique personal brand built around excellence and continuous growth.
+              </p>
+              <a class="btn btn-primary" href="#contact">READ MY STORY</a>
+            </div>
+            <div class="about-visual reveal">
+              <img src="assets/images/about.jpg" alt="Morgan Jeremiah performing with violin" />
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-strip">
+          <div class="container stats-grid">
+            <div class="stat-card reveal">
+              <strong class="counter" data-target="10">0</strong>
+              <span>EVENTS</span>
+            </div>
+            <div class="stat-card reveal">
+              <strong class="counter" data-target="100">0</strong>
+              <span>PERFORMANCES</span>
+            </div>
+            <div class="stat-card reveal">
+              <strong class="counter" data-target="50">0</strong>
+              <span>CLIENTS</span>
+            </div>
+            <div class="stat-card reveal">
+              <strong class="counter" data-target="24">0</strong>
+              <span>COMMITMENT</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section services-section" id="services">
+          <div class="container">
+            <div class="section-heading reveal">
+              <p class="eyebrow">MY SERVICES</p>
+              <h2>Excellence in every performance.</h2>
+            </div>
+
+            <div class="services-grid">
+              <article class="service-card reveal">
+                <img src="assets/images/service-1.jpg" alt="Live violin performance" />
+                <div class="service-body">
+                  <div class="service-icon">🎻</div>
+                  <h3>LIVE VIOLIN PERFORMANCE</h3>
+                  <p>Weddings, birthdays, church programs, concerts, corporate events, cocktail hours, vow ceremonies and more.</p>
+                  <a href="#contact" class="service-link">DISCOVER</a>
+                </div>
+              </article>
+              <article class="service-card reveal">
+                <img src="assets/images/service-2.jpg" alt="Private event violin performance" />
+                <div class="service-body">
+                  <div class="service-icon">✦</div>
+                  <h3>PRIVATE EVENTS</h3>
+                  <p>Dinner parties, anniversaries, birthday celebrations, surprises, marriage proposals and private gatherings.</p>
+                  <a href="#contact" class="service-link">DISCOVER</a>
+                </div>
+              </article>
+              <article class="service-card reveal">
+                <img src="assets/images/service-3.jpg" alt="Music recording and studio session" />
+                <div class="service-body">
+                  <div class="service-icon">🎙</div>
+                  <h3>MUSIC RECORDING</h3>
+                  <p>Session playing, overdubbing, jingles, music projects and creative collaborations.</p>
+                  <a href="#contact" class="service-link">DISCOVER</a>
+                </div>
+              </article>
+              <article class="service-card reveal">
+                <img src="assets/images/service-4.jpg" alt="Music education lesson" />
+                <div class="service-body">
+                  <div class="service-icon">🎶</div>
+                  <h3>MUSIC EDUCATION</h3>
+                  <p>Private violin lessons, group classes, workshops and musical coaching.</p>
+                  <a href="#contact" class="service-link">DISCOVER</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reasons-section">
+          <div class="container">
+            <div class="section-heading reveal">
+              <p class="eyebrow">WHY CHOOSE AVIATOR VIOLINIST?</p>
+              <h2>Crafted to create lasting emotion.</h2>
+            </div>
+            <div class="reasons-grid">
+              <div class="reason-card reveal"><span>01</span><h3>Professional Performance</h3></div>
+              <div class="reason-card reveal"><span>02</span><h3>Elegant Atmosphere</h3></div>
+              <div class="reason-card reveal"><span>03</span><h3>Emotional Connection</h3></div>
+              <div class="reason-card reveal"><span>04</span><h3>Live Entertainment</h3></div>
+              <div class="reason-card reveal"><span>05</span><h3>Special Song Requests</h3></div>
+              <div class="reason-card reveal"><span>06</span><h3>Variety of Musical Styles</h3></div>
+              <div class="reason-card reveal"><span>07</span><h3>Professionalism</h3></div>
+              <div class="reason-card reveal"><span>08</span><h3>Memorable Experiences</h3></div>
+              <div class="reason-card reveal"><span>09</span><h3>Gospel & Worship Ministrations</h3></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section gallery-section" id="gallery">
+          <div class="container">
+            <div class="section-heading reveal">
+              <p class="eyebrow">MEMORABLE PERFORMANCES</p>
+              <h2>Moments from the stage.</h2>
+            </div>
+            <div class="gallery-grid">
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-1.jpg" alt="Violin performance at a ceremony" data-caption="Elegant performance under warm golden lights." />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-2.jpg" alt="Live violin performance during a church program" data-caption="A memorable church performance with emotional depth." />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-3.jpg" alt="Violin solo at an event" data-caption="A cinematic musical moment for guests." />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-4.jpg" alt="Violinist performing during a private celebration" data-caption="Luxury atmosphere and intimate elegance." />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-5.jpg" alt="Classical violin set" data-caption="Classical expression with premium stage presence." />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-6.jpg" alt="Violin and event lighting" data-caption="A refined event experience shaped by music." />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-7.jpg" alt="Violinist at a special occasion" data-caption="Personalized performance for a meaningful celebration." />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-8.jpg" alt="Violin expressively played for audience" data-caption="Moments that stay in the memory long after the event." />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="assets/images/gallery-9.jpg" alt="Performance in a live acoustic setting" data-caption="Acoustic elegance and emotional resonance." />
+              </figure>
+              <figure class="gallery-item reveal large">
+                <img src="assets/images/gallery-10.jpg" alt="Aviator Violinist performing on stage" data-caption="A signature performance built on artistry and atmosphere." />
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="section blog-section" id="blog">
+          <div class="container">
+            <div class="section-heading reveal">
+              <p class="eyebrow">LATEST INSIGHTS</p>
+              <h2>Ideas, stories and experiences.</h2>
+            </div>
+            <div class="blog-grid">
+              <article class="blog-card reveal">
+                <img src="assets/images/blog-1.jpg" alt="Violin on stage" />
+                <div class="blog-body">
+                  <div class="meta-row">
+                    <span>05 OCT 2026</span>
+                    <span>ART</span>
+                  </div>
+                  <h3>THE ART OF THE VIOLIN</h3>
+                  <p>Exploring the beauty, emotion and versatility of violin music.</p>
+                  <a href="#contact" class="read-more">READ MORE</a>
+                </div>
+              </article>
+              <article class="blog-card reveal">
+                <img src="assets/images/blog-2.jpg" alt="Music practice and discipline" />
+                <div class="blog-body">
+                  <div class="meta-row">
+                    <span>12 NOV 2026</span>
+                    <span>DISCIPLINE</span>
+                  </div>
+                  <h3>MUSIC, DISCIPLINE & EXCELLENCE</h3>
+                  <p>How consistency and discipline shape a creative journey.</p>
+                  <a href="#contact" class="read-more">READ MORE</a>
+                </div>
+              </article>
+              <article class="blog-card reveal">
+                <img src="assets/images/blog-3.jpg" alt="Aviation and violin inspiration" />
+                <div class="blog-body">
+                  <div class="meta-row">
+                    <span>20 DEC 2026</span>
+                    <span>JOURNEY</span>
+                  </div>
+                  <h3>FROM AVIATION TO MUSIC</h3>
+                  <p>The journey behind the Aviator Violinist identity.</p>
+                  <a href="#contact" class="read-more">READ MORE</a>
+                </div>
+              </article>
+            </div>
+            <div class="section-action reveal">
+              <a class="btn btn-secondary" href="#contact">VIEW ALL ARTICLES</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section booking-section">
+          <div class="container booking-box reveal">
+            <div>
+              <p class="eyebrow">BOOKING</p>
+              <h2>READY TO MAKE YOUR EVENT UNFORGETTABLE?</h2>
+            </div>
+            <p>Book Aviator Violinist for your next special occasion and create an experience your guests will remember.</p>
+            <div class="booking-actions">
+              <a class="btn btn-primary" href="https://wa.me/2347034324561" target="_blank" rel="noreferrer">BOOK NOW</a>
+              <a class="btn btn-secondary" href="https://wa.me/2347034324561" target="_blank" rel="noreferrer">WHATSAPP</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+          <div class="container contact-layout">
+            <div class="contact-copy reveal">
+              <p class="eyebrow">LET'S CONNECT</p>
+              <h2>We're here to collaborate, create and elevate your next experience.</h2>
+              <div class="contact-list">
+                <div class="contact-item">
+                  <span>Email</span>
+                  <a href="mailto:morganjeremiah@gmail.com">morganjeremiah@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                  <span>Phone</span>
+                  <a href="tel:+2347034324561">07034324561</a>
+                </div>
+                <div class="contact-item">
+                  <span>Location</span>
+                  <p>Lagos, Nigeria</p>
+                </div>
+                <div class="contact-item">
+                  <span>Socials</span>
+                  <a href="https://instagram.com/Aviator-Violinist" target="_blank" rel="noreferrer">Instagram: Aviator-Violinist</a>
+                </div>
+              </div>
+            </div>
+
+            <form class="contact-form reveal" id="contactForm" novalidate>
+              <div class="form-row">
+                <label>
+                  <span>Name</span>
+                  <input type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input type="email" name="email" placeholder="Your email" required />
+                </label>
+              </div>
+              <label>
+                <span>Subject</span>
+                <input type="text" name="subject" placeholder="Event or enquiry" required />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea name="message" rows="6" placeholder="Tell me about your vision" required></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">SEND MESSAGE</button>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+
+        <section class="section social-section">
+          <div class="container social-box reveal">
+            <div class="social-icon">◎</div>
+            <div>
+              <p class="eyebrow">FOLLOW THE JOURNEY</p>
+              <h3>@Aviator-Violinist</h3>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <img src="assets/images/logo.png" alt="Aviator Violinist logo" />
+            <h3>AVIATOR VIOLINIST</h3>
+            <p>Morgan Jeremiah</p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">HOME</a></li>
+              <li><a href="#about">ABOUT</a></li>
+              <li><a href="#services">SERVICES</a></li>
+              <li><a href="#blog">BLOG</a></li>
+              <li><a href="#contact">CONTACT</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li>LIVE PERFORMANCES</li>
+              <li>PRIVATE EVENTS</li>
+              <li>MUSIC EDUCATION</li>
+              <li>RECORDING</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <ul>
+              <li>PRIVACY POLICY</li>
+              <li>TERMS OF SERVICE</li>
+              <li>BOOKING POLICY</li>
+            </ul>
+          </div>
+          <div class="newsletter-box">
+            <h4>Stay updated with the latest from Aviator Violinist.</h4>
+            <div class="newsletter-form">
+              <input type="email" aria-label="Email address" placeholder="Enter your email" />
+              <button type="button" class="btn btn-primary">SUBSCRIBE</button>
+            </div>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <p>© 2026 Morgan Jeremiah. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox__close" type="button" aria-label="Close gallery">×</button>
+      <button class="lightbox__nav lightbox__prev" type="button" aria-label="Previous image">‹</button>
+      <div class="lightbox__content">
+        <img id="lightbox-image" src="" alt="Expanded gallery item" />
+        <p id="lightbox-caption"></p>
+      </div>
+      <button class="lightbox__nav lightbox__next" type="button" aria-label="Next image">›</button>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
+
