@@ -28,6 +28,7 @@ const loadingSteps = [
 ];
 
 function startPreloader() {
+  if (!preloader || !progressFill || !loaderPercent || !loadingMessage) return;
   let currentStep = 0;
   let progress = 0;
 
@@ -53,7 +54,7 @@ function startPreloader() {
 
 function setupMenu() {
   menuToggle?.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    navLinks?.classList.toggle('open');
   });
 
   navLinks?.querySelectorAll('a').forEach((link) => {
@@ -62,7 +63,7 @@ function setupMenu() {
   });
 
   const menuButton = document.querySelector('.nav-menu');
-  menuButton?.addEventListener('click', () => navLinks.classList.toggle('open'));
+  menuButton?.addEventListener('click', () => navLinks?.classList.toggle('open'));
 }
 
 function revealOnScroll() {
@@ -137,6 +138,20 @@ function handleFormSubmit(event) {
   form.reset();
 }
 
+function handleBookingSubmit(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const status = form.querySelector('.form-status');
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  const name = form.elements.name.value.trim();
+  const category = form.elements.category.value;
+  status.textContent = `Thank you, ${name}. Your ${category.toLowerCase()} request is ready to connect to MJX.`;
+  form.reset();
+}
+
 function setupGalleryLightbox() {
   let currentIndex = 0;
 
@@ -196,8 +211,5 @@ window.addEventListener('DOMContentLoaded', () => {
   startPreloader();
 
   contactForm?.addEventListener('submit', handleFormSubmit);
-
-  const footerYear = document.createElement('span');
-  footerYear.textContent = new Date().getFullYear();
-  document.querySelector('.footer-bottom p')?.append(document.createTextNode(''));
+  document.getElementById('booking-form')?.addEventListener('submit', handleBookingSubmit);
 });
