@@ -1,12 +1,12 @@
 const preloader = document.getElementById('preloader');
 const progressFill = document.getElementById('progress-fill');
-const loaderPercent = document.getElementById('loader-percent');
-const loadingMessage = document.getElementById('loading-message');
+const loaderPercent = document.getElementById('progress-value') || document.getElementById('loader-percent');
+const loadingMessage = document.getElementById('flight-checklist') || document.getElementById('loading-message');
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const counters = document.querySelectorAll('.counter');
 const revealItems = document.querySelectorAll('.reveal');
-const contactForm = document.getElementById('contactForm');
+const contactForm = document.getElementById('contact-form') || document.getElementById('contactForm');
 const galleryItems = document.querySelectorAll('.gallery-item img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
@@ -190,7 +190,7 @@ function setupGalleryLightbox() {
   });
 
   document.addEventListener('keydown', (event) => {
-    if (!lightbox.classList.contains('is-open')) return;
+    if (!lightbox || !lightbox.classList.contains('is-open')) return;
     if (event.key === 'Escape') closeLightbox();
     if (event.key === 'ArrowRight') {
       const nextIndex = (currentIndex + 1) % galleryItems.length;
